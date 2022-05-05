@@ -1,3 +1,4 @@
+import { MessageEmbed } from "discord.js";
 import { Command } from "../../structures/Commands";
 
 export default new Command({
@@ -18,11 +19,11 @@ export default new Command({
         }
     ],
     run: async({interaction}) => {
+
         // La interacción que vayamos a realizar deberá coincidir con las opciones que vayamos a especificar.
         const user = interaction.options.getUser('user')
         const reason = interaction.options.getString('reason')
 
-        interaction.followUp(`Congrats for ${user} for doing ${reason}`);
-
+        interaction.followUp(`Te doy gracias ${user} por ${reason}`);
     }
 })
