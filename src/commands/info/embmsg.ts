@@ -28,8 +28,6 @@ export default new Command({
     const title = interaction.options.getString("title");
     const field = interaction.options.getString("field");
 
-    console.log("Avatar: " + avatar);
-
     const embed = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle(title)
@@ -43,7 +41,7 @@ export default new Command({
       )
       .addField("Gracias por:", field)
       .setTimestamp()
-      .setFooter({ text: "LeanMind bot", iconURL: `${avatar}` });
+      .setFooter({ text: "LeanMind bot"});
     interaction.followUp({ embeds: [embed] });
   },
 });
