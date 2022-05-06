@@ -1,10 +1,11 @@
-import { CommandInteraction, 
-         CommandInteractionOptionResolver,
-         ChatInputApplicationCommandData,
-         PermissionResolvable,
-         GuildManager,
-         GuildMember,
-        } from "discord.js"
+import {
+  CommandInteraction,
+  CommandInteractionOptionResolver,
+  ChatInputApplicationCommandData,
+  PermissionResolvable,
+  GuildManager,
+  GuildMember,
+} from "discord.js";
 import { ExtendedClient } from "../structures/Client";
 
 /*
@@ -15,24 +16,19 @@ import { ExtendedClient } from "../structures/Client";
  * }
  */
 
- export interface ExtendedInteraction extends CommandInteraction {
-    member: GuildMember
+export interface ExtendedInteraction extends CommandInteraction {
+  member: GuildMember;
 }
 
-
-
 interface RunOptions {
-    client: ExtendedClient,
-    interaction: ExtendedInteraction,
-    args: CommandInteractionOptionResolver
+  client: ExtendedClient;
+  interaction: ExtendedInteraction;
+  args: CommandInteractionOptionResolver;
 }
 
 type RunFunction = (options: RunOptions) => any;
 
-
-
 export type CommandType = {
-    userPermissions?: PermissionResolvable[];
-    run: RunFunction;
+  userPermissions?: PermissionResolvable[];
+  run: RunFunction;
 } & ChatInputApplicationCommandData;
-
